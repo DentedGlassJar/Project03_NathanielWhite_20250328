@@ -1,32 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-// Sam Robichaud 
-// NSCC Truro 2025
-
-public class Singleton : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    // this script sets itself, and all children as a Single Instance
-    // When a new scene is loaded the object with this script (and all it's children) will be carried into the new scene.
-    // allows you to carry main functionality objects between scenes
+    public static GameManager Instance { get; private set; }
 
-
-    static Singleton Instance;
-
-    public GameStateManager gameStateRef;
-    public UIManager UIManagerRef;
-    public InputManager inputManagerRef;
     public LevelManager levelManagerRef;
+    public GameStateManager gameStateManagerRef;
+    public UIManager UIManagerRef;
+    public GameObject playerRef;
 
-    void Start()
+    //Awake method for the singleton pattern.
+    private void Awake()
     {
-        if (Instance != null)
+        #region Singleton Pattern
+
+        if (Instance != null && Instance != this)
         {
-            GameObject.Destroy(gameObject);
+            Destroy(gameObject);
+            return;
         }
-        else
-        {
-            GameObject.DontDestroyOnLoad(gameObject);
-            Instance = this;
-        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        #endregion
+
     }
 }

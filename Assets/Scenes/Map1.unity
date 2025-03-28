@@ -3829,13 +3829,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 938892925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a790a0c847a0b34e849cb3c8220e3f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 6be1c749cca975c408b582eb0fc2c120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStateRef: {fileID: 207824139}
-  UIManagerRef: {fileID: 1986339873}
-  inputManagerRef: {fileID: 1995185542}
   levelManagerRef: {fileID: 159543468}
+  gameStateManagerRef: {fileID: 207824139}
+  UIManagerRef: {fileID: 1986339873}
+  playerRef: {fileID: 2018395298}
 --- !u!1 &974558698
 GameObject:
   m_ObjectHideFlags: 0
@@ -4327,9 +4327,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 332208064139908623, guid: c77a1c165baa3244a90b96f711aed2e5, type: 3}
+      propertyPath: sceneName
+      value: Map2
+      objectReference: {fileID: 0}
+    - target: {fileID: 332208064139908623, guid: c77a1c165baa3244a90b96f711aed2e5, type: 3}
+      propertyPath: spawnPoint
+      value: Spawnpoint_Map2_West
+      objectReference: {fileID: 0}
+    - target: {fileID: 332208064139908623, guid: c77a1c165baa3244a90b96f711aed2e5, type: 3}
+      propertyPath: levelManagerRef
+      value: 
+      objectReference: {fileID: 159543468}
+    - target: {fileID: 332208064139908623, guid: c77a1c165baa3244a90b96f711aed2e5, type: 3}
+      propertyPath: levelManagementObj
+      value: 
+      objectReference: {fileID: 159543466}
     - target: {fileID: 1307496557254520500, guid: c77a1c165baa3244a90b96f711aed2e5, type: 3}
       propertyPath: m_Name
       value: TriggerSceneChange_Map1_East
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325807749794641784, guid: c77a1c165baa3244a90b96f711aed2e5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4325807749794641784, guid: c77a1c165baa3244a90b96f711aed2e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4370,6 +4390,10 @@ PrefabInstance:
     - target: {fileID: 4325807749794641784, guid: c77a1c165baa3244a90b96f711aed2e5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892538540616882371, guid: c77a1c165baa3244a90b96f711aed2e5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

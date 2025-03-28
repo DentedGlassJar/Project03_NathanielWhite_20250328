@@ -7,24 +7,22 @@ public class Trigger_SceneChange : MonoBehaviour
     public string sceneName;
     public string spawnPoint;
 
+    public GameObject levelManagementObj;
+
+    private LevelManager levelManagerRef;
+
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelManagerRef = levelManagementObj.GetComponent<LevelManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-    
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player has entered Trigger_SceneChange!");
-        }    
+            levelManagerRef.LoadSceneSpawnPoint(spawnPoint, sceneName);
+        }
     }
 }

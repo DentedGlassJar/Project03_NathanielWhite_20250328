@@ -12,12 +12,22 @@ public class LevelManager : MonoBehaviour
         spawnPointName = spawnPoint;
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        SceneManager.LoadScene(sceneName);
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
+        SetPlayerSpawnPoint();
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void SetPlayerSpawnPoint()
+    {
+        GameObject spawnPointObj = GameObject.Find(spawnPointName);
+
+        GameManager.Instance.playerRef.transform.position = spawnPointObj.transform.position;
     }
 }
 
