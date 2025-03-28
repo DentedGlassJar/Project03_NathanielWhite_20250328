@@ -9,14 +9,19 @@ using static InputManager;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D playerRigidbody;
+    Animator playerFloatDirection;
 
     public Vector2 moveDirection;
     private float moveSpeed = 5.0f;
+
+    private float xFloat;
+    private float yFloat;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = this.GetComponent<Rigidbody2D>();
+        playerFloatDirection = this.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -43,5 +48,16 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         HandlePlayerMovement();
+        DirectionAnimator();
+    }
+
+    private void DirectionAnimator()
+    {
+        xFloat = moveDirection.x;
+        yFloat = moveDirection.y;
+
+        playerFloatDirection.SetFloat("X", xFloat);
+        playerFloatDirection.SetFloat("Y", yFloat);
+
     }
 }
